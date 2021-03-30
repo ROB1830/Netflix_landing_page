@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Bebas Neue', cursive;
+}
+
+body
+{
+    min-height: 100vh;
+    background: #000;
+}
+
+header
+{
+    width: 100%;
+    min-height: 80px;
+    /* para que no se pueda hacer scroll dentro */
+    overflow: hidden;
+    display: flex;
+    /* con esto lo hemos justificado de derecha a izqueirda */
+    justify-content: space-between; 
+    /* con esto lo ponemos en el centro de arriba a abajo.  */
+    align-items: center;
+    /* ponemos posicion relativa pq el jeader tendra elementos dentro
+    y queremos que se muevan dentro de el y no fuera. */
+    position: relative;
+
+
+
+
+
+}
+
+header .logo
+{
+    font-size: 3em;
+    color: red;
+    margin-left: 100px;
+}
+
+header .logo h2
+{
+    letter-spacing: 3px;
+}
+
+ul
+{
+    /* display: flex;  */
+    flex: 2;
+    text-align: right;
+    margin-right: 50px;
+    
+    
+    
+
+}
+
+ul li
+{
+    /* como queremos que siempre se displeyen de forma lineal hay que ponerlo 
+    pq sino pasa que si hacemos el viewport mas pequeño se va a poner elementos debajo */
+    display: inline-block;
+    margin: 0 20px;
+    
+    
+}
+
+ul li a
+{
+    text-decoration: none;
+    color: #fff;
+    font-size: 2em;
+}
+ul li a:hover
+{
+    color: red;
+}
+
+.search
+{
+   
+    /* quiero que la caja del search
+    sea como maximo 200px de grande */
+    max-width: 350px;
+    /* quiero qeu ocupe el 100% de la caja */
+    width: 100%;
+    /* quieor que sea un poco mas grueso */
+    height: 39px;
+    cursor: pointer;
+
+
+}
+
+/* ahora vamos a tagear dentro de lso elementos
+y vamos a jugar con la altura y la anchura en funcion de la 
+caja search. Mira que el height es el de al propia caja.  */
+.search input
+{
+    height: 100%;
+    width: 250px;
+    border: none;
+    /* con esto cuando hacemos click no se va a cambiar el estilo
+    sigue dentro blanco y ya esta. no hace cosas por defecto del navegador.  */
+    outline: none;
+    padding: 10px;
+    
+}
+
+.search button
+{
+    height: 100%;
+    width: 50px;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.menu-close
+{
+    color: #fff;
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    font-size: 2em;
+    display: none;
+}
+
+.menu-open
+{
+    color: #fff;
+    position: absolute;
+    left: 5px;
+    top: 30%;
+    font-size: 2em;
+    display: none;
+    /* VER QUE ES LO QUE HACE CON ESTO */
+    transform: translateY(-50%);
+    cursor: pointer;
+    
+
+}
+
+
+/* ************* SECTION ************* */
+
+section
+{
+    position: relative;
+}
+
+/* con esto estamos definiendo que el box 
+que va a contener la imagen y el contenido ocupen el 100
+Esto no tiene pq hacer que la imagen ocupe el 100 puesto
+que no estamos inicidiendo en ella de momento. */
+.container
+{
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+   
+    
+}
+
+.slides
+{
+    /* podriamos usar absolute par amover la imgen 
+    por denotro pero como slides tiene dentor elementos hay qu eponer relative
+    puesto que estos elementos a su vez se moveran dentor del slide. */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    animation: fade 1s ease-in-out;
+}
+
+@keyframes fade{
+    to{
+        opacity: 1;
+
+    }
+    from{
+        opacity: 0;
+    }
+}
+
+.slides img
+{
+    width: 100%;
+    height: 100%;
+    /* no tiene sentido usar posicion de algo pq ya no se puede mover la imagen 
+    puesto que es muy grande*/
+    /* position: absolute; */
+    display: block;
+    object-fit: cover;
+    filter: brightness(80%);
+
+}
+
+.slides .content
+{
+    position: absolute;
+    color:#fff;
+    top: 50%;
+    max-width:  400px;
+    left: 35px;
+    bottom: 10px;
+    text-shadow: 0 0 1px #000;
+    
+}
+
+.slides .content h2
+{
+    font-size: 2.5em;
+    letter-spacing: 2px;
+}
+
+.slides .content p
+{
+    font-size: 1em;
+}
+
+.slides .content .video-play
+{
+    position: absolute;
+    top: 100%;
+    width: 150px;
+    display: flex;
+    justify-content: space-between;
+    background: #0009;
+    padding: 10px 20px;
+    margin-top: 15px;
+}
+
+
+.slides .content .video-play img
+{
+    width: 30px;
+    color: #fff;
+    filter: invert(1);
+
+}
+
+.slides .content .video-play a
+{
+    color: #fff;
+    text-decoration: none;
+    justify-content: center;
+    align-self: center;
+}
+
+.slides .content .video-play:hover
+{
+    background: chocolate;
+    border-radius: 2%;
+}
+
+
+/* PART 2 ******************* */
+
+.row
+{
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+    top: 600px;
+ 
+    
+    margin-top: 30px;
+}
+
+.row h2
+{
+    color: red;
+    font-size: 2em;
+    letter-spacing: 2px;
+}
+
+.row .nav
+{
+    width: 100%;
+    padding: 10px 0px;
+    overflow: hidden;
+    scroll-behavior: smooth;
+    
+    
+
+
+}
+
+.row .nav .nav-bar
+{
+    width: 100%;
+    height: 200px;
+    display: flex;
+
+
+}
+
+.nav-bar .column
+{
+    min-width: 25%;
+    height: 100%;
+    transition: 0.3s linear;
+    cursor: pointer;
+}
+
+.column img
+{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    display: block;
+    
+}
+
+.active
+{
+    transform: scale(1.1);
+    border: 1px solid #fff;
+}
+
+.prev, .next
+{
+    color: #fff;
+    position: absolute;
+    top: 35%;
+    font-size: 6em;
+    background-color: #0009;
+    padding: 5px 10px;
+    
+}
+
+.next
+{
+    right: 0;
+}
+
+
+/* RESPONSIVE **************** */
+
+@media (max-width: 1210px)
+{
+    header .logo 
+    {
+        margin-left: 50px;
+        margin-top: 20px;
+    }
+    ul li
+    {
+        margin: 0 15px;
+        font-size: 0.9em;
+        padding-top: 19px;
+    }
+    .search
+    {
+        margin-top: 14px;
+        
+    }
+
+}
+
+@media (max-width: 1134px)
+{
+    ul
+    {
+        /* vamos a hacer que el menu ahora se vea en la pantalla entera */
+        /* lo primero es que la posicon que va a tener va a ser fija. eso quiere decir que si hacemos scroll se va a ver todo en la misma posicion */
+        /* con esto tambien conseguimos que se salga fuera del flujo del html */
+        position: fixed;
+        background: #111;
+        
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        /* esto hay que ponerlo a -100 para que no se solape con la pagina sino no podemos acceder al bocadillo */
+        left: -100%;
+        z-index: 99;
+        padding-top: 80px;
+        text-align: center;
+        /* /si es necesario hacer scroll se podra */
+        overflow: auto;
+        transition: 0.5s linear;
+
+    }
+
+    ul li
+    {
+        display: block;
+        padding:20px 50px
+        
+        
+    }
+
+    .menu-close, .menu-open
+    {
+        display: block;
+        cursor: pointer;
+    }
+    .menu-open
+    {
+        margin-top: 30px;
+    }
+    .menu-close
+    {
+        position: absolute;
+        top: 30px;
+    }
+
+    header .logo
+    {
+        margin-left: 200px;
+        
+    }
+    header .logo {
+        letter-spacing: 5px;
+        font-size: 3em;
+    }
+    .menu-open{
+        margin-left: 35px;
+    }
+
+
+}
+/* con esto vamos a seleccionar todos los elementos de tipo casilla que se encuentran selecionados 
+y vas a hacer algo sobre ul*/
+
+#chk1:checked ~ ul
+{
+    left: 0;
+}
+
+#chk1
+{
+    display: none;
+}
+
+@media (max-width: 760px)
+{
+    .row .nav{
+        height: auto;
+    }
+
+    .row .nav .nav-bar{
+        height: auto;
+        flex-wrap: wrap;
+        transition: 0.5s linear;
+        
+    }
+    .row .nav .nav-bar .column
+    {
+        width: 25%;
+    }
+
+
+
+    header .logo
+    {
+        margin-left: 100px;
+    }
+    .menu-open{
+        margin-left: 35px;
+    }
+
+
+}
+
+@media (max-width: 550px)
+{
+  
+    .search{
+        position: fixed;
+        top: 20px;
+        z-index: 99;
+        left: -100%;
+        transform: translateX(-42%);
+        transition-delay: 0.5s; 
+
+
+    }
+    header .logo
+    {
+        margin-left: 300px;
+    }
+    .menu-open{
+        margin-left: 35px;
+    }
+
+
+
+}
+#chk1:checked ~.search{
+    left: 50%;
+    
+    
+
+}
